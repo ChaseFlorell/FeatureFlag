@@ -16,7 +16,7 @@
     <ItemGroup>
         <PackageReference Include="MSBuild.Sdk.Extras" Version="2.0.54" PrivateAssets="All" />
         <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
-        <PackageReference Include="System.Json" Version="4.6.0" />
+        <PackageReference Include="System.Json" Version="4.7.1" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

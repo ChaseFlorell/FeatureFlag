@@ -3,9 +3,9 @@
   branches:
     only:
       - development
-  image: Visual Studio 2019
+  image: macOS
   init:
-    - ps: Update-AppveyorBuild -Version "$(Get-Date -format yyyy.M).$env:appveyor_build_number"
+    - sh: appveyor UpdateBuild -Version "$(date '+%Y.%m').$APPVEYOR_BUILD_NUMBER"
   dotnet_csproj:
     patch: true
     file: '**\Directory.Build.props'
@@ -17,7 +17,7 @@
   environment:
     CAKE_SETTINGS_SKIPPACKAGEVERSIONCHECK: true
   build_script:
-    - ps: ./build
+    - sh: ./build.sh
   artifacts:
     - path: '**\FutureFlag.*.nupkg'
   deploy:
@@ -30,9 +30,9 @@
   branches:
     only:
       - master
-  image: Visual Studio 2019
+  image: macOS
   init:
-    - ps: Update-AppveyorBuild -Version "$(Get-Date -format yyyy.M).$env:appveyor_build_number"
+    - sh: appveyor UpdateBuild -Version "$(date '+%Y.%m').$APPVEYOR_BUILD_NUMBER"
   dotnet_csproj:
     patch: true
     file: '**\Directory.Build.props'
@@ -44,7 +44,7 @@
   environment:
     CAKE_SETTINGS_SKIPPACKAGEVERSIONCHECK: true
   build_script:
-    - ps: ./build
+    - sh: ./build.sh
   artifacts:
     - path: '**\FutureFlag.*.nupkg'
   deploy:
